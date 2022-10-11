@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import Logo from "../../assets/netflix-logo.png";
-import Avatar from "../../assets/avatar.jpg";
+import Logo from "../../../assets/netflix-logo.png";
+import Avatar from "../../../assets/avatar.jpg";
 import "./Nav.scss";
 
 function Nav() {

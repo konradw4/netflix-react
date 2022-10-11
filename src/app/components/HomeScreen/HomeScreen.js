@@ -1,9 +1,9 @@
 import React from "react";
 
-import Banner from "../Banner/Banner";
+import { requests } from "../../../api/request";
 import Nav from "../Nav/Nav";
+import Banner from "../Banner/Banner";
 import Row from "../Row/Row";
-import { requests } from "../../api/request";
 
 import "./HomeScreen.scss";
 

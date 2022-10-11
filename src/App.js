@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.scss";
-import HomeScreen from "./app/HomeScreen/HomeScreen";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoginScreen from "./app/LoginScreen/LoginScreen";
+import HomeScreen from "./app/components/HomeScreen/HomeScreen";
+import LoginScreen from "./app/components/LoginScreen/LoginScreen";
 import { auth } from "./firebase.config";
 
 function App() {

@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../../firebase.config";
+import { auth } from "../../../firebase.config";
 
 import "./SignupScreen.scss";
 

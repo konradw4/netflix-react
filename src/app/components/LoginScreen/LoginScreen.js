@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import "./LoginScreen.scss";
-import Logo from "../../assets/netflix-logo.png";
+import Logo from "../../../assets/netflix-logo.png";
 import SignupScreen from "../SignupScreen/SignupScreen";
 
 function LoginScreen() {
