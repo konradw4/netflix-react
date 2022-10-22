@@ -1,10 +1,6 @@
 import React, { useRef } from "react";
 
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-import { auth } from "../../../firebase.config";
+import { createUserAccout, userSignIn } from "../../../firebase/firebase";
 
 import "./SignupScreen.scss";
 
@@ -15,31 +11,19 @@ function SignupScreen() {
   const register = (e) => {
     e.preventDefault();
 
-    createUserWithEmailAndPassword(
-      auth,
-      emailRef.current.value,
-      passwordRef.current.value
-    )
-      .then((authUser) => {
-        console.log(authUser);
-      })
-      .catch((error) => {
+    createUserAccout(emailRef.current.value, passwordRef.current.value).catch(
+      (error) => {
         alert(error.message);
-      });
+      }
+    );
   };
 
   const signIn = (e) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(
-      auth,
-      emailRef.current.value,
-      passwordRef.current.value
-    )
-      .then((authUser) => {
-        console.log(authUser);
-      })
-      .catch((error) => alert(error.message));
+    userSignIn(emailRef.current.value, passwordRef.current.value).catch(
+      (error) => alert(error.message)
+    );
   };
 
   return (

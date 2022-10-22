@@ -7,14 +7,14 @@ import HomeScreen from "./app/components/HomeScreen/HomeScreen";
 import LoginScreen from "./app/components/LoginScreen/LoginScreen";
 import ProfileScreen from "./app/components/ProfileScreen/ProfileScreen";
 import { login, logout, selectUser } from "./app/redux/userSlice";
-import { auth } from "./firebase.config";
+import { authStateChanged } from "./firebase/firebase";
 
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+    const unsubscribe = authStateChanged((userAuth) => {
       if (userAuth) {
         dispatch(
           login({
