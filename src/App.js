@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import HomeScreen from "./app/components/HomeScreen/HomeScreen";
 import LoginScreen from "./app/components/LoginScreen/LoginScreen";
+import ProfileScreen from "./app/components/ProfileScreen/ProfileScreen";
 import { login, logout, selectUser } from "./app/redux/userSlice";
 import { auth } from "./firebase.config";
 
@@ -22,13 +23,12 @@ function App() {
           })
         );
       } else {
-        // logged out
-        dispatch(logout);
+        dispatch(logout());
       }
     });
 
     return unsubscribe;
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
@@ -37,6 +37,7 @@ function App() {
       ) : (
         <Router>
           <Routes>
+            <Route path="/profile" element={<ProfileScreen />} />
             <Route path="/" element={<HomeScreen />} />
           </Routes>
         </Router>

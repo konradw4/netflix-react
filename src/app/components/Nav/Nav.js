@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import Logo from "../../../assets/netflix-logo.png";
 import Avatar from "../../../assets/avatar.jpg";
 import "./Nav.scss";
+import { useNavigate } from "react-router-dom";
 
 function Nav() {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
   const transitionNavBar = () => {
     if (window.scrollY > 100) {
@@ -23,8 +25,18 @@ function Nav() {
   return (
     <div className={`nav ${show && "nav__black"}`}>
       <div className="nav__contents">
-        <img className="nav__logo" src={Logo} alt="Logo" />
-        <img className="nav__avatar" src={Avatar} alt=""></img>
+        <img
+          onClick={() => navigate("/")}
+          className="nav__logo"
+          src={Logo}
+          alt="Logo"
+        />
+        <img
+          onClick={() => navigate("/profile")}
+          className="nav__avatar"
+          src={Avatar}
+          alt=""
+        ></img>
       </div>
     </div>
   );
