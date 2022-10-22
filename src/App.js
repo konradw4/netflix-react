@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import "./App.scss";
 import HomeScreen from "./app/components/HomeScreen/HomeScreen";
@@ -32,16 +32,19 @@ function App() {
 
   return (
     <div className="app">
-      {!user ? (
-        <LoginScreen />
-      ) : (
-        <Router>
-          <Routes>
-            <Route path="/profile" element={<ProfileScreen />} />
-            <Route path="/" element={<HomeScreen />} />
-          </Routes>
-        </Router>
-      )}
+      <BrowserRouter>
+        <Routes>
+          {!user ? (
+            <Route path="/" element={<LoginScreen />} />
+          ) : (
+            <>
+              <Route path="/" element={<HomeScreen />} />
+              <Route path="/profile" element={<ProfileScreen />} />
+            </>
+          )}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
